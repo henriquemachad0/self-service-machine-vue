@@ -45,9 +45,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1x Big Mac</td>
-                        <td>5.99</td>
+                    <tr v-for="product in products">
+                        <template v-if="product.active">
+                            <td v-if="product.active">{{ product.quantity + 'x ' + product.name }} 1x Big Mac</td>
+                            <td v-if="product.active">{{ (product.quantity * product.price).toFixed(2) }}</td>
+                        </template>
+
                     </tr>
 
                     <tr>
